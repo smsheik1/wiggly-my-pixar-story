@@ -1,11 +1,13 @@
 /**
  * Standalone format registry. In the Wiggly monorepo this registry holds every
- * ad format; this repo only ships My Pixar Story, so it is the single entry.
+ * ad format; this repo ships only My Pixar Story (app preview) and memoir-film (the official
+ * Remotion film renderer).
  * Shape mirrors wiggly monorepo v3/features/formats/registry.ts.
  */
 import type { RenderableAdFormatId } from "../scene/types";
 import type { AdFormatModule } from "./types";
-import { myPixarStoryFormatModule } from "./my-pixar-story";
+import { myPixarStoryFormatModule } from "./my-pixar-story/module";
+import { memoirFilmFormatModule } from "./memoir-film";
 
 export type AnyAdFormatModule = AdFormatModule<string, any>;
 
@@ -13,6 +15,7 @@ export const createFormatRegistry = <TModules extends Record<string, AnyAdFormat
 
 export const formatRegistry = createFormatRegistry({
   "my-pixar-story": myPixarStoryFormatModule,
+  "memoir-film": memoirFilmFormatModule,
 } satisfies Record<RenderableAdFormatId, AnyAdFormatModule>);
 
 export const getFormatModuleFromRegistry = <

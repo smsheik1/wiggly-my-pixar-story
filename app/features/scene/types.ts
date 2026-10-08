@@ -1,14 +1,15 @@
 /**
  * Minimal standalone copy of the Wiggly ad-scene contract, trimmed to what the
  * My Pixar Story format needs. Source: wiggly monorepo v3/features/scene/types.ts
- * (and v3/features/research/types.ts for the brand fields). Only the
- * "my-pixar-story" format is renderable in this repo.
+ * (and v3/features/research/types.ts for the brand fields). The renderable
+ * formats here are "my-pixar-story" (app preview) and "memoir-film" (the official
+ * Remotion film renderer used by runtime/remotion.mjs).
  */
 import type { MyPixarStoryStoryboard } from "../formats/my-pixar-story/types";
 
 export const AD_SCENE_VERSION = 1 as const;
 
-export type RenderableAdFormatId = "my-pixar-story";
+export type RenderableAdFormatId = "my-pixar-story" | "memoir-film";
 
 export type HeadlineType =
   | "painful_moment"
@@ -155,4 +156,11 @@ export type MyPixarStoryAdScene = AdSceneBase<
   MyPixarStoryAdSceneLayout
 >;
 
-export type RenderableAdScene = MyPixarStoryAdScene;
+export type MemoirFilmAdScene = AdSceneBase<
+  "memoir-film", AdSceneStyleBase, {
+    preset: "memoir-film"; durationMs: 60000; fps: 30; manifestDigest: string;
+    clips: Array<{ id: string; src: string; startFrame: number; durationFrames: number; sourceOffsetSeconds: number }>;
+  }
+>;
+
+export type RenderableAdScene = MyPixarStoryAdScene | MemoirFilmAdScene;
