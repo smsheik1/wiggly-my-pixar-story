@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "proof": "steve-jobs-to-lisa",
+  "input": "docs/proofs/steve-jobs-to-lisa.json",
+  "_note": "Agent production pass (SKILL.md section 3) for a public-figure proof. Narration is rewritten only from facts in the input answers (no invented facts). Voice is a public Cartesia stock voice: the format never clones a person who has not consented, so the input's parent_clone mode is replaced by a stock narrator for this proof. Character sheets were skipped to stay inside the approved proof budget; consistency comes from repeating the same character description in every keyframe prompt.",
+  "voice": {
+    "provider": "Cartesia",
+    "model": "sonic-3",
+    "voiceId": "ed82c17b-4704-4d34-be43-5d19065acdf1",
+    "name": "Carl - Steady Storyteller"
+  },
+  "beats": [
+    {
+      "narration": "Lisa, when I was little, my dad Paul gave me my own corner of his workbench. I built Heathkit electronics and took apart whatever he brought home.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a 1960s California suburban garage at golden hour. A nine-year-old boy named Steve with short dark brown hair and large curious brown eyes kneels on a stool at his own corner of a cluttered wooden workbench, carefully lifting the back off an old radio, a hobby electronics kit with resistors and a soldering iron beside him. His tall father, seen from the side in a work shirt, leans in smiling. Warm golden late-afternoon light through the garage door, dust motes."
+    },
+    {
+      "narration": "Taking the leap was terrifying. But my friend Woz and I built the Apple I in my parents' garage in Los Altos.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a 1970s family garage in Los Altos at twilight, a single hanging work lamp. Two young men in their early twenties lean over a green circuit board on a workbench: Steve, lean and wiry with dark brown shoulder-length hair and brown eyes in a plain shirt, holding the board up to the light; beside him his friend Woz, stocky and bearded with a friendly grin, holding a soldering iron. Moody evening light, warm lamp glow, atmospheric haze."
+    },
+    {
+      "narration": "The moment that changed everything was when you came to live with me as a teenager, and I finally got to be your dad up close.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a warm family kitchen in Palo Alto in the evening. Steve, a man in his late thirties with short dark brown hair, round wireframe spectacles, light stubble and a black mock turtleneck, sits at a wooden kitchen table beside his teenage daughter Lisa, who has long dark hair; they share an unguarded laugh over homework. Warm amber interior light, soft golden key light, intimate medium-close two-shot."
+    },
+    {
+      "narration": "Lisa, the Lisa computer was named after you, and I should have said so sooner. You can't connect the dots looking forward. Stay hungry. Stay foolish.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: golden hour in a calm, minimal home study. Steve, a man in his fifties with short greying dark brown hair, round wireframe spectacles, light stubble, a lean angular jawline and a black mock turtleneck, sits beside a beige early-1980s desktop computer and looks off-frame with a gentle, regretful, loving smile. Radiant warm window light, soft rim light on his silhouette, emotional close-up framing with creamy background blur."
+    }
+  ],
+  "visuals": "Muse keyframes animated locally with a slow FFmpeg camera move (no AI video generation in proofs, per the owner's instruction)."
+}

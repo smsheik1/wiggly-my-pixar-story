@@ -8,7 +8,7 @@
     "Chrome Headless Shell (downloaded once by Remotion on first render; or set MEMOIR_BROWSER_EXECUTABLE)"
   ],
   "providers": [
-    { "name": "Cartesia Sonic", "environmentVariables": ["CARTESIA_API_KEY"], "optional": false, "paid": true, "purpose": "Consented voice clone of the maker and four natural-rate narration windows." },
+    { "name": "Cartesia Sonic", "environmentVariables": ["CARTESIA_API_KEY"], "optional": false, "paid": true, "purpose": "Four natural-rate narration windows in a public stock voice or a consented clone of the maker." },
     { "name": "Meta Muse Image 1.0", "environmentVariables": ["META_API_KEY"], "optional": false, "paid": true, "purpose": "Character candidates and sheets, backgrounds and full-quality shot keyframes (~$0.01/image)." },
     { "name": "Seedance 2.0 Mini 480p via Replicate", "environmentVariables": ["REPLICATE_API_TOKEN"], "optional": false, "paid": true, "purpose": "Image-to-video clips (one of REPLICATE_API_TOKEN or SEADANCE_API_KEY is required)." },
     { "name": "SeaDance direct API", "environmentVariables": ["SEADANCE_API_KEY"], "optional": true, "paid": true, "purpose": "Alternative video route used by app providers.ts generateSceneVideoClip." },

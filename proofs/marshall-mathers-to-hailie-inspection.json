@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "kind": "technical-media-inspection",
+  "media": {
+    "file": "marshall-mathers-to-hailie.mp4",
+    "sha256": "7afcece7b41f59bf96a9617cf1fcfaab58d30f95808d45d604b1db26761b37a9",
+    "sizeBytes": 7289180,
+    "durationSeconds": 60,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "hasAudio": true
+  },
+  "streams": [
+    {
+      "index": 0,
+      "codecType": "video",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": "30/1",
+      "pixelFormat": "yuvj420p",
+      "durationSeconds": 60
+    },
+    {
+      "index": 1,
+      "codecType": "audio",
+      "codec": "aac",
+      "sampleRate": 48000,
+      "channels": 2,
+      "durationSeconds": 60.010667
+    }
+  ],
+  "review": {
+    "status": "not-assessed",
+    "limitations": [
+      "Metadata and checksums do not verify motion, content, audio perception, or creative quality. Direct review remains required."
+    ]
+  }
+}

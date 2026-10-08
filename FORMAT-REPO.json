@@ -3,7 +3,7 @@
   "kind": "wiggly-format",
   "slug": "my-pixar-story",
   "version": "2.1.0",
-  "status": "draft",
+  "status": "ready-for-review",
   "runtime": "runner.mjs",
   "releaseFiles": [
     ".gitignore",
@@ -31,13 +31,38 @@
     "tests/remotion.test.mjs",
     "tests/runner.test.mjs",
     "docs/proofs/steve-jobs-to-lisa.json",
-    "docs/proofs/marshall-mathers-to-hailie.json"
+    "docs/proofs/marshall-mathers-to-hailie.json",
+    "PROOF-REPORT.md",
+    "runtime/providers.mjs",
+    "docs/proofs/steve-jobs-to-lisa-production.json",
+    "docs/proofs/marshall-mathers-to-hailie-production.json",
+    "proofs/steve-jobs-to-lisa.mp4",
+    "proofs/steve-jobs-to-lisa-inspection.json",
+    "proofs/steve-jobs-to-lisa-keyframes.jpg",
+    "proofs/steve-jobs-to-lisa-provenance.json",
+    "proofs/marshall-mathers-to-hailie.mp4",
+    "proofs/marshall-mathers-to-hailie-inspection.json",
+    "proofs/marshall-mathers-to-hailie-keyframes.jpg",
+    "proofs/marshall-mathers-to-hailie-provenance.json"
   ],
   "assets": [],
-  "proofs": [],
+  "proofs": [
+    {
+      "id": "steve-jobs-to-lisa",
+      "input": "docs/proofs/steve-jobs-to-lisa.json",
+      "output": "proofs/steve-jobs-to-lisa.mp4",
+      "inspection": "proofs/steve-jobs-to-lisa-inspection.json"
+    },
+    {
+      "id": "marshall-mathers-to-hailie",
+      "input": "docs/proofs/marshall-mathers-to-hailie.json",
+      "output": "proofs/marshall-mathers-to-hailie.mp4",
+      "inspection": "proofs/marshall-mathers-to-hailie-inspection.json"
+    }
+  ],
   "review": {
     "status": "pending",
     "reviewer": null,
-    "notes": "Runtime, docs and smoke are in place; proof outputs land in the next commit."
+    "notes": "Two public-figure proofs pass the technical gate. They use paid Muse keyframes and stock-voice Cartesia narration with stand-in camera motion; no AI video was generated (owner's instruction). Nobody has watched the films end to end yet. See PROOF-REPORT.md."
   }
 }

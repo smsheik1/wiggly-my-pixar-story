@@ -6,3 +6,6 @@ secrets.env
 evaluation/local/
 build/
 runs/
+.env
+.env.*
+*.sqlite

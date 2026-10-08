@@ -66,13 +66,21 @@ Every keyframe must be a separately generated, full-quality image. Never animate
 
 ## 4. Paid generation (needs explicit approval)
 
-1. Show the user the plan, the providers (listed in `requirements.json`), the number of calls of each kind, and the rates you sourced. Then ask once.
-2. After they approve, generate with their own keys:
-   - Narration: Cartesia Sonic, one call per beat, using the cloned voice. Each file must be 15 s or shorter.
-   - Keyframes: Meta Muse Image 1.0.
-   - Clips: Seedance 2.0 Mini at 480p, image-to-video, through Replicate or the SeaDance API. Discard the clip's own generated audio.
-   - Prototype runners for these providers are in `app/features/formats/my-pixar-story/providers.ts`. They have mock mode, cost guardrails, and loud errors when a key is missing. They have not yet been proven end to end from this standalone repo, so check provider responses carefully and record job IDs.
-3. Save everything under `runs/<name>/media/`, which is gitignored with the rest of `runs/`. Never put any of it in the repo.
+1. Show the user the plan, the providers (listed in `requirements.json`), the number of calls of each kind, and the rates you sourced. Then ask once, and get a spend cap in dollars.
+2. Write a production spec: four beats, each with `narration` (rewritten only from the maker's answers, 38 words or fewer) and a full `keyframePrompt`, plus the `voice` to use. `docs/proofs/*-production.json` are worked examples.
+3. Keyframes and narration (proven from this repo):
+
+   ```bash
+   node runner.mjs produce --input <inputs.json> --production <production.json> --run runs/<name> --max-usd <approved cap>
+   ```
+
+   - One Meta Muse Image 1.0 keyframe (1344x768 request, about $0.01) and one Cartesia Sonic narration per beat.
+   - Every call is estimated, checked against `--max-usd` and written to `runs/<name>/spend-ledger.json` before it is sent, with the provider job or request ID. Re-running reuses calls that already succeeded. Each step gets at most 3 attempts.
+   - The voice must be a public stock voice, or a clone of the maker with a recorded consent reference (`voice.consentRecord`). Never clone anyone who has not consented, including public figures.
+   - Narration longer than 15 s stops the run. Shorten the line; never speed it up.
+4. `produce` **stops before image-to-video.** It writes `runs/<name>/video-requests.json`: the exact unsent Seedance 2.0 Mini 480p request for each beat (keyframe, video prompt, 15 s, generated audio off) and a cost quote at the sourced rate. Video spend needs its own approval. After approval, generate the four clips (save each prediction ID before polling, at most 3 attempts per clip), discard any generated audio, and go to section 5 with those clips and the four narration files.
+5. Optional free review cut before approving video: `node runner.mjs stand-in-film --run runs/<name> --out runs/<name>/review.mp4`. It puts a slow local camera move on each keyframe under its narration and renders through the official renderer. It is not the final film.
+6. Save everything under `runs/`, which is gitignored. Never put any of it in the repo.
 
 ## 5. Assemble and render (free, local)
 
@@ -112,10 +120,11 @@ node runner.mjs finalize --run runs/<name> --film <film.mp4> --inspection runs/<
 
 | Path | What it is |
 | --- | --- |
-| `runner.mjs` | The only CLI: check, smoke, validate, plan, manifest, render, inspect, finalize, open, and placeholder-film (a free offline pipeline proof). |
+| `runner.mjs` | The only CLI: check, smoke, validate, plan, produce (paid keyframes + narration, stops before video), stand-in-film (free review cut), manifest, render, inspect, finalize, open, and placeholder-film (a free offline pipeline proof). |
+| `runtime/providers.mjs` | Muse and Cartesia calls with the spend ledger (keys from the environment only, never logged). |
 | `runtime/` | The official film runtime: `remotion.mjs` (composition), `assemble.mjs` (render + gate), `mix.mjs` (audio), `media.mjs` (immutable media import), `progress.mjs` (progress page), `contracts.mjs` (studio artifact schemas). |
 | `app/remotion-entry/`, `app/features/formats/memoir-film/` | Source of the official renderer, bundled by `build-renderer.mjs` into the gitignored `build/remotion`. |
 | `app/features/formats/my-pixar-story/` | Format logic: input types and validation, storyboard and prompt compiler, interview state machine, provider runners, inspection receipts, intake UI. |
 | `crew/`, `*-prompter.md`, `character-sheet-recipe.md`, `evaluation/rubrics/` | Role guides and review rubrics. |
-| `docs/proofs/` | Two public-figure proof inputs. `proofs/` holds proof outputs and their inspections. |
+| `docs/proofs/` | Two public-figure proof inputs and their production specs. `proofs/` holds proof films, keyframes, inspections and provenance; `PROOF-REPORT.md` explains them. |
 | `studio.json`, `scene-contract.json`, `SQL-INTEGRATION.md` | Notes from the Wiggly hosted studio (crew model assignments and a SQLite adapter). The standalone runner doesn't use them; ignore them for local runs. |

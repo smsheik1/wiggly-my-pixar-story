@@ -4,7 +4,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdtemp, rm, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { check, validate, plan, inspect, PROVIDERS } from '../runner.mjs';
+import { check, validate, plan, inspect, produce, PROVIDERS } from '../runner.mjs';
+import { SpendLedger } from '../runtime/providers.mjs';
 
 const proofs = ['docs/proofs/steve-jobs-to-lisa.json', 'docs/proofs/marshall-mathers-to-hailie.json'];
 
@@ -57,4 +58,26 @@ test('inspect writes the Repo Builder technical-media-inspection schema', async 
     assert.equal(report.media.hasAudio, true);
     await assert.rejects(inspect(media, join(dir, 'report.json')), /already exists/);
   } finally { await rm(dir, { recursive: true }); }
+});
+
+test('spend ledger enforces the approved cap and the 3-attempt limit before any call', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'mps-ledger-'));
+  try {
+    await assert.rejects(SpendLedger.open(join(dir, 'l.json'), NaN), /--max-usd/);
+    const ledger = await SpendLedger.open(join(dir, 'l.json'), 0.025);
+    const a = await ledger.begin({ step: 'keyframe-1', estimateUsd: 0.01 }); await ledger.end(a, { status: 'succeeded' });
+    await assert.rejects(ledger.begin({ step: 'keyframe-2', estimateUsd: 0.02 }), /Budget stop/);
+    for (let i = 0; i < 3; i++) { const e = await ledger.begin({ step: 'narration-1', estimateUsd: 0 }); await ledger.end(e, { status: 'failed-unbilled' }); }
+    await assert.rejects(ledger.begin({ step: 'narration-1', estimateUsd: 0 }), /Attempt limit/);
+    assert.equal(ledger.done('keyframe-1').status, 'succeeded');
+    const saved = JSON.parse(await readFile(join(dir, 'l.json'), 'utf8'));
+    assert.equal(saved.entries.length, 4);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
+
+test('produce refuses to run without an approved --max-usd (no provider call is made)', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'mps-produce-'));
+  try {
+    await assert.rejects(produce({ input: proofs[0], production: 'docs/proofs/steve-jobs-to-lisa-production.json', runDir: dir }), /--max-usd/);
+  } finally { await rm(dir, { recursive: true, force: true }); }
 });

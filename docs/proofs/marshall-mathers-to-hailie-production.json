@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "proof": "marshall-mathers-to-hailie",
+  "input": "docs/proofs/marshall-mathers-to-hailie.json",
+  "_note": "Agent production pass (SKILL.md section 3) for a public-figure proof. Narration is rewritten only from facts in the input answers (no invented facts). Voice is a public Cartesia stock voice: the format never clones a person who has not consented, so the input's parent_clone mode is replaced by a stock narrator for this proof. Character sheets were skipped to stay inside the approved proof budget; consistency comes from repeating the same character description in every keyframe prompt.",
+  "voice": {
+    "provider": "Cartesia",
+    "model": "sonic-3",
+    "voiceId": "23112795-d54e-4560-9568-791a87c30201",
+    "name": "Darius - Husky Narrator"
+  },
+  "beats": [
+    {
+      "narration": "Hailie, when I was a kid, I was always the new kid. So I read the dictionary and filled notebooks with rhymes.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a small, sparse bedroom in a modest Detroit house at night. A ten-year-old boy named Marshall with buzzed dark brown hair, piercing blue eyes and an oversized grey hoodie sits cross-legged on a narrow bed, a thick dictionary open beside him, scribbling rhymes into a spiral notebook. A boombox sits on the floor. Warm desk-lamp glow against cool blue window light."
+    },
+    {
+      "narration": "I flew to the Rap Olympics with no money and everything riding on one battle. Then Dr. Dre heard my Slim Shady tape and called me into the studio.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a late-1990s recording studio at night. Marshall, a lean young man in his twenties with buzzed dark brown hair, piercing blue eyes and a pulled-up hoodie, stands at a studio microphone with headphones on, eyes closed, one hand raised mid-verse. Glowing mixing console and studio monitors behind the glass. Moody low-key light, rich directional key light, atmospheric haze."
+    },
+    {
+      "narration": "The moment that changed everything was the day you were born, on Christmas Day, 1995. Everything I did after that was for you.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a modest small apartment living room on Christmas Day, a little decorated tree with warm string lights. Marshall, a young father in his early twenties with buzzed dark brown hair and blue eyes in a hoodie, sits on a worn couch cradling his newborn daughter wrapped in a soft blanket, gazing down at her with awe. Warm amber light, delicate atmospheric falloff, intimate medium-close framing."
+    },
+    {
+      "narration": "Hailie, every word I wrote was so you would never have to grow up the way I did. Keep writing, kid. The words will carry you out.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: golden hour by a large window. Marshall, a man in his fifties with buzzed dark brown hair, a short beard, piercing blue eyes and a pulled-up hoodie, sits holding an old worn spiral notebook, giving a small proud smirk that softens into a warm smile. Radiant warm window light, soft rim light along his silhouette, emotional close-up framing, creamy background blur."
+    }
+  ],
+  "visuals": "Muse keyframes animated locally with a slow FFmpeg camera move (no AI video generation in proofs, per the owner's instruction)."
+}

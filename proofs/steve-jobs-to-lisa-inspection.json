@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "kind": "technical-media-inspection",
+  "media": {
+    "file": "steve-jobs-to-lisa.mp4",
+    "sha256": "47e595efe9591b0c9d174d67aaaeff0f650335ea05141174f84f3cf6e749fa02",
+    "sizeBytes": 7995598,
+    "durationSeconds": 60,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "hasAudio": true
+  },
+  "streams": [
+    {
+      "index": 0,
+      "codecType": "video",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": "30/1",
+      "pixelFormat": "yuvj420p",
+      "durationSeconds": 60
+    },
+    {
+      "index": 1,
+      "codecType": "audio",
+      "codec": "aac",
+      "sampleRate": 48000,
+      "channels": 2,
+      "durationSeconds": 60.010667
+    }
+  ],
+  "review": {
+    "status": "not-assessed",
+    "limitations": [
+      "Metadata and checksums do not verify motion, content, audio perception, or creative quality. Direct review remains required."
+    ]
+  }
+}

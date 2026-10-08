@@ -39,6 +39,8 @@ npm ci
 node runner.mjs check                                          # tools + which key names are missing (free)
 node runner.mjs smoke                                          # free end-to-end smoke through the real renderer
 node runner.mjs plan --input docs/proofs/steve-jobs-to-lisa.json --run runs/steve   # draft beats + paid-call list
+node runner.mjs produce --input docs/proofs/steve-jobs-to-lisa.json --production docs/proofs/steve-jobs-to-lisa-production.json --run runs/steve --max-usd 0.20   # PAID: keyframes + narration, stops before video
+node runner.mjs stand-in-film --run runs/steve --out runs/steve/review.mp4   # free review cut, no AI video
 npm test                                                       # app tests, renderer test, runner tests
 ```
 
@@ -46,17 +48,17 @@ npm test                                                       # app tests, rend
 
 | Service | Used for | Key | Cost |
 | --- | --- | --- | --- |
-| Cartesia Sonic | Voice clone and 4 narration windows | `CARTESIA_API_KEY` | Paid, per character. Check current pricing. |
+| Cartesia Sonic | 4 narration windows (stock voice, or a consented clone of you) | `CARTESIA_API_KEY` | About 1 credit per character (roughly $0.05 per 1,000 characters on the Pro plan); a 4-beat film is about 500 characters |
 | Meta Muse Image 1.0 | Character sheets, backgrounds, keyframes | `META_API_KEY` | About $0.01 per image |
-| Seedance 2.0 Mini, 480p (Replicate or the SeaDance API) | Image-to-video clips | `REPLICATE_API_TOKEN` or `SEADANCE_API_KEY` | Paid, per clip. Check current pricing. |
+| Seedance 2.0 Mini, 480p (Replicate or the SeaDance API) | Image-to-video clips | `REPLICATE_API_TOKEN` or `SEADANCE_API_KEY` | About $0.04 per second on Replicate (checked October 2026): four 15 s clips is about $2.40 |
 | Gemini, ElevenLabs (optional) | Automated media review, music, effects | `GEMINI_API_KEY`, `ELEVENLABS_API_KEY` | Optional |
 
 Validation, planning, rendering, inspection, and the smoke test are free and run locally. They need only Node 22 or later, FFmpeg, and FFprobe.
 
 ## Proofs
 
-`proofs/` holds two films rendered from the public-figure inputs in `docs/proofs/` (Steve Jobs to Lisa, and Marshall Mathers to Hailie). They are **offline pipeline proofs**: placeholder gradient visuals and placeholder system-voice narration, run through the official renderer and technical gate with no paid calls. They prove the runtime and the timing, not the creative quality of a real Pixar-style production. `PROOF-REPORT.md` covers what they show and what is still unproven.
+`proofs/` holds two 60-second review cuts made from the public-figure inputs in `docs/proofs/` (Steve Jobs to Lisa, and Marshall Mathers to Hailie). Each used real paid calls: four Meta Muse keyframes and four Cartesia narration lines in a public stock voice (never a clone of the real person). Each keyframe then got a slow local camera move, and the film went through the official renderer and technical gate. **No AI video was generated**, so the motion is a stand-in and the films aren't final productions. The keyframes, the unsent video requests and the spend ledger are in `proofs/` too. `PROOF-REPORT.md` covers what they show and what is still unproven.
 
 ## Status
 
-The runtime, validation, planning, rendering, and inspection all work and are tested. Paid generation through the provider runners hasn't yet been proven end to end from this repo. Creative review is pending. See `FORMAT-REPO.json`.
+The runtime, validation, planning, paid keyframes and narration, rendering, and inspection all work, and are tested or proven by the proofs. Image-to-video generation hasn't been run from this repo yet: `produce` stops there and writes the exact requests for approval. Creative review is pending. See `FORMAT-REPO.json`.

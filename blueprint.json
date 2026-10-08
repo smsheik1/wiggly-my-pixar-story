@@ -6,20 +6,59 @@
   "summary": "A 60-second 16:9 stylized-3D animated memoir in which a parent or grandparent narrates four 15-second beats of their own life to one recipient, in their own consented cloned voice. Built from Wiggly's internal format spec and supervised studio runs, not cloned from a reference video, so no reference media or hash exists.",
   "observations": [],
   "rules": [
-    { "id": "timeline", "description": "Exactly 60 s at 1920x1080 30 fps: four fixed 15-second narration windows; contiguous frame-aligned clips cover 1800 frames.", "classification": "fixed" },
-    { "id": "voice", "description": "First-person narration by the maker to one named recipient, natural rate, never sped up; voice clone only from a consented sample of the maker.", "classification": "fixed" },
-    { "id": "grounded", "description": "Every name, place, object, date and quote traces to the maker's answers (grounded-v1).", "classification": "fixed" },
-    { "id": "content", "description": "Answers, recipient, traits, tone, cast, shots, prompts, clips, narration and optional music are replaceable input content; the renderer and runner never change per story.", "classification": "variable" }
+    {
+      "id": "timeline",
+      "description": "Exactly 60 s at 1920x1080 30 fps: four fixed 15-second narration windows; contiguous frame-aligned clips cover 1800 frames.",
+      "classification": "fixed"
+    },
+    {
+      "id": "voice",
+      "description": "First-person narration by the maker to one named recipient, natural rate, never sped up; voice clone only from a consented sample of the maker.",
+      "classification": "fixed"
+    },
+    {
+      "id": "grounded",
+      "description": "Every name, place, object, date and quote traces to the maker's answers (grounded-v1).",
+      "classification": "fixed"
+    },
+    {
+      "id": "content",
+      "description": "Answers, recipient, traits, tone, cast, shots, prompts, clips, narration and optional music are replaceable input content; the renderer and runner never change per story.",
+      "classification": "variable"
+    }
   ],
   "inputs": [
-    { "id": "inputs", "description": "MyPixarStoryInputs JSON (subject, Golden 5 answers, consented voice capture, tone); see docs/proofs." },
-    { "id": "media", "description": "Generated or supplied clips (>= slot length) and four narration files (<= 15 s each), imported by runner.mjs manifest." }
+    {
+      "id": "inputs",
+      "description": "MyPixarStoryInputs JSON (subject, Golden 5 answers, consented voice capture, tone); see docs/proofs."
+    },
+    {
+      "id": "media",
+      "description": "Generated or supplied clips (>= slot length) and four narration files (<= 15 s each), imported by runner.mjs manifest."
+    }
   ],
-  "runtime": { "approach": "Node runner + official Remotion memoir-film composition + FFmpeg mix and technical gate", "entrypoint": "runner.mjs" },
-  "review": { "visual": "unavailable", "audio": "unavailable", "limitations": ["No paid production film has been reviewed from this standalone repo; proofs are offline placeholder pipeline renders."] },
+  "runtime": {
+    "approach": "Node runner + official Remotion memoir-film composition + FFmpeg mix and technical gate",
+    "entrypoint": "runner.mjs"
+  },
+  "review": {
+    "visual": "sampled-frames",
+    "audio": "unavailable",
+    "limitations": [
+      "The builder inspected keyframes and four sampled frames per proof film; nobody has watched the films end to end.",
+      "Narration audio was measured (duration, loudness, true peak) but not listened to by a person.",
+      "Proof films use stand-in motion (local camera moves over keyframes); no AI image-to-video clip has been generated or reviewed from this repo."
+    ]
+  },
   "assets": [],
   "proofs": [
-    { "id": "steve-jobs-to-lisa", "description": "Father-to-daughter public-figure story (tech founder, warm tearjerker tone) rendered offline through the official runtime with placeholder visuals and system-voice narration." },
-    { "id": "marshall-mathers-to-hailie", "description": "Father-to-daughter public-figure story (musician, triumphant tone, different traits and arc) rendered offline through the same runtime with no runtime changes." }
+    {
+      "id": "steve-jobs-to-lisa",
+      "description": "Father-to-daughter public-figure story (tech founder, warm tearjerker tone): paid Muse keyframes and stock-voice Cartesia narration, stand-in camera motion instead of AI video, official render and gate."
+    },
+    {
+      "id": "marshall-mathers-to-hailie",
+      "description": "Father-to-daughter public-figure story (musician, triumphant tone, different traits, settings and arc) through the same produce and render path with no runtime changes and a different stock voice."
+    }
   ]
 }
