@@ -43,7 +43,9 @@
     "proofs/marshall-mathers-to-hailie.mp4",
     "proofs/marshall-mathers-to-hailie-inspection.json",
     "proofs/marshall-mathers-to-hailie-keyframes.jpg",
-    "proofs/marshall-mathers-to-hailie-provenance.json"
+    "proofs/marshall-mathers-to-hailie-provenance.json",
+    "examples/shaz-to-mia.json",
+    "examples/shaz-to-mia-production.json"
   ],
   "assets": [],
   "proofs": [

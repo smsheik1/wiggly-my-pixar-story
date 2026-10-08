@@ -12,7 +12,7 @@ Answer five questions about your life: childhood, teenage freedom, the big leap,
 
 ## What you provide
 
-- Your answers to the Golden 5 questions. `docs/proofs/steve-jobs-to-lisa.json` shows the exact shape.
+- Your answers to the Golden 5 questions. `docs/proofs/steve-jobs-to-lisa.json` shows the exact shape. `examples/shaz-to-mia.json` is a real parent's answers (to a fictional daughter), mapped from a free-text intake, with its production spec in `examples/shaz-to-mia-production.json`.
 - A voice sample of at least 10 seconds, recorded with your consent. It's used only to clone your own voice.
 - Optionally, reference photos for character design.
 - Your own provider keys, set as environment variables. They are never stored in the repo.

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "proof": "shaz-to-mia-example",
+  "input": "examples/shaz-to-mia.json",
+  "_note": "Example production spec (text only). Narration uses only the maker's intake words. Public Cartesia stock voice, no clone. Generated keyframes, narration audio and the review cut are not published.",
+  "voice": {
+    "provider": "Cartesia",
+    "model": "sonic-3",
+    "voiceId": "ed82c17b-4704-4d34-be43-5d19065acdf1",
+    "name": "Carl - Steady Storyteller"
+  },
+  "beats": [
+    {
+      "narration": "Mia, when I was eight, I wanted to be a scientist. I didn't talk much, I wore sunglasses everywhere, and card battles with my big sister and little brother were our thing.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: an early-2000s family living room in the afternoon. An eight-year-old boy with short dark brown hair wearing oversized dark sunglasses sits on the carpet in a serious, quiet card battle with his little brother (six, dark hair), fanned trading cards in their hands, while their teenage older sister cheers them on from the couch. A boxy CRT television glows with an anime cartoon. Warm golden afternoon window light."
+    },
+    {
+      "narration": "I graduated high school early, went to a coding bootcamp, and at nineteen I got my first software engineering job. I actually did it.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a bright modern open-plan office. A nineteen-year-old young man with short dark brown hair and brown eyes in a new button-down shirt sits at his very first desk with a laptop showing colorful lines of code, a new employee badge on his chest, grinning in disbelief. Moody early-evening light through tall windows, warm desk lamp, atmospheric haze."
+    },
+    {
+      "narration": "Your mom showed up on FaceTime every week at eight p.m., and it was that consistency that made me fall in love with her.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: a small Dallas apartment at night. A young man in his twenties with short dark brown hair, brown eyes and a short beard sits on his couch holding up a phone for a video call, smiling softly; the phone screen glows warmly. Through the window, city lights at night. Warm amber interior light, intimate medium-close framing."
+    },
+    {
+      "narration": "Mia, I love you very much, even if I don't always show it. The world is messier than the Disney version. You are what you think about.",
+      "keyframePrompt": "A cinematic film still from a feature-length 3D animated family film in the stylized Pixar-like animation aesthetic: RenderMan-style global illumination, appealing simplified character design, large expressive eyes, smooth matte skin with soft subsurface warmth, matte cloth with a few large folds, painterly stylized environment, muted warm palette with saturated story accents, soft volumetric light. Not photorealistic, not a flat 2D cartoon, no glossy plastic, no text, no logos, no watermark. 16:9 widescreen landscape composition, soft cinematic depth of field. Scene: golden hour on a front porch. A man in his thirties with short dark brown hair, brown eyes and a short beard sits beside his six-year-old daughter Mia, who has dark curly hair; she leans on his arm as he looks down at her with a quiet, loving smile. Radiant warm sunset light, soft rim light on their silhouettes, emotional close framing, creamy background blur."
+    }
+  ]
+}

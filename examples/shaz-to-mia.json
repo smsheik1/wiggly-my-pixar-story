@@ -1,0 +1,51 @@
+{
+  "_note": "Example input (text only), shared publicly by the maker. 'Mia' is a fictional test daughter; the parent's answers are real and kept as written, mapped from the script-led one-memory-per-scene intake into MyPixarStoryInputs fields. Physical traits are placeholder assumptions (no photos used). No photos, voice recordings, consent notes or generated media are included.",
+  "subject": {
+    "fullName": "Shaz",
+    "preferredName": "Shaz",
+    "recipientName": "Mia",
+    "relationshipToRecipient": "father",
+    "referencePhotoUrls": [],
+    "gender": "male",
+    "keyPhysicalTraits": {
+      "gender": "male",
+      "ageBracket": "30s",
+      "hairColor": "dark_brown",
+      "hairStyle": "short",
+      "eyeColor": "brown",
+      "glasses": false,
+      "facialHair": "short_beard",
+      "signatureTraits": [
+        "sunglasses as a kid"
+      ]
+    }
+  },
+  "answers": {
+    "scene1Childhood": {
+      "partnerInCrime": "my older sister who was 7 years older than me and my little brother, 2 years younger than me",
+      "sillyTrouble": "I didn't talk much, and I wore sunglasses everywhere, that was my signature style",
+      "weirdObsession": "Yugioh cards and battling each other"
+    },
+    "scene2TeenFreedom": {
+      "freedomMachine": "my 2000 Honda Accord Coupe with the faded paint and no A/C",
+      "secretTeenIdentity": "I installed a radio aux cable converter so I could play my tunes with my friends"
+    },
+    "scene3LeapOfFaith": {
+      "riskOrAdventure": "I graduated from high school early and went to a coding bootcamp",
+      "triumphMoment": "at the tender age of 19, I got my first software engineering job"
+    },
+    "scene4Romance": {
+      "howWeMet": "we met on a dating app",
+      "awkwardDateMoment": "she was all the way in Chicago when I was in Dallas so we were long distance",
+      "theMomentIKnew": "every week at 8pm, she would show up on Facetime, and it was that consistency that made me fall in love with her"
+    },
+    "scene5LegacyFinale": {
+      "whatIWishKidsUnderstood": "I love you very much even if I may not always show it",
+      "timeMachineMessageToChildSelf": "the world is much messier than the Disney way of viewing it, and you are what you think about"
+    }
+  },
+  "audio": {
+    "narrationMode": "storybook_narrator"
+  },
+  "tone": "heartwarming_tearjerker"
+}

@@ -41,6 +41,10 @@ Cartesia bills credits (about 1 per character). The dollar figure assumes the Pr
 - Muse keyframes keep each character recognisably consistent across a story without character sheets. This was checked by eye on all eight keyframes.
 - The narration fits each 15-second window at a natural pace, between 5.9 and 12.2 s per beat.
 
+## Example input (not a proof)
+
+`examples/shaz-to-mia.json` and `examples/shaz-to-mia-production.json` hold a real parent's text answers to a fictional daughter, Mia, published with the maker's consent, plus the production spec built from them. They went through the same `validate`, `plan`, `produce` and `stand-in-film` steps (4 Muse keyframes and 4 stock-voice Cartesia narrations, about $0.068) and the result passed the technical gate. Only the text is published. The generated keyframes, narration audio and review cut stay private, and no photos, voice recordings or consent notes exist in the repo.
+
 ## What is still unproven
 
 - **Image-to-video.** No Seedance clip has been generated from this repo. The motion in these films is a stand-in, not character animation.
