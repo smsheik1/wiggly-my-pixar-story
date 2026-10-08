@@ -4,6 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { importMedia, verifyFiles, probe } from './media.mjs';
 import { prepareComposition, renderComposition, digest } from './remotion.mjs';
+import { writeProgress } from './progress.mjs';
 const exec = promisify(execFile);
 export { audioMixArgs } from './mix.mjs';
 
@@ -37,11 +38,7 @@ export async function render(manifest, runDir) {
   const out = join(dir, 'film.mp4');
   let updates = Promise.resolve();
   const progress = value => {
-    updates = updates.then(async () => {
-      const data = { ...value, manifestDigest };
-      await writeFile(join(dir, 'progress.json'), JSON.stringify(data, null, 2));
-      await writeFile(join(dir, 'progress.html'), `<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="2"><title>Memoir render</title></head><body><h2>Memoir assembly</h2><progress max="60" value="${value.seconds ?? 0}"></progress><p>${value.status}: ${(value.seconds ?? 0).toFixed(1)} / 60 seconds</p></body></html>`);
-    });
+    updates = updates.then(() => writeProgress(dir, { ...value, totalSeconds: 60, manifestDigest, output: value.status === 'ready-for-review' ? out : '' }));
   };
   progress({ status: 'rendering', seconds: 0 });
   try {
@@ -71,7 +68,7 @@ export async function render(manifest, runDir) {
     await updates;
     return result;
   } catch (e) {
-    progress({ status: 'failed', seconds: 0 });
+    progress({ status: 'failed', seconds: 0, error: e.message });
     await updates;
     throw e;
   }

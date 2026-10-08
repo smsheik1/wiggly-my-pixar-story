@@ -5,7 +5,9 @@
     "preferredName": "Marshall",
     "recipientName": "Hailie",
     "relationshipToRecipient": "father",
-    "referencePhotoUrls": ["https://example.invalid/proofs/marshall-mathers/reference.jpg"],
+    "referencePhotoUrls": [
+      "https://example.invalid/proofs/marshall-mathers/reference.jpg"
+    ],
     "gender": "male",
     "keyPhysicalTraits": {
       "gender": "male",
@@ -15,7 +17,11 @@
       "eyeColor": "blue",
       "glasses": false,
       "facialHair": "short_beard",
-      "signatureTraits": ["piercing blue eyes", "pulled-up hoodie", "smirk"]
+      "signatureTraits": [
+        "piercing blue eyes",
+        "pulled-up hoodie",
+        "smirk"
+      ]
     }
   },
   "audio": {
@@ -30,7 +36,7 @@
     "scene1Childhood": {
       "partnerInCrime": "my uncle Ronnie, who was close to my age and first played me a rap tape",
       "sillyTrouble": "always being the new kid, bouncing between Missouri and Detroit and getting picked on at every school",
-      "weirdObsession": "reading the dictionary and filling notebooks with rhymes because words felt like the one thing I could control"
+      "weirdObsession": "reading the dictionary and filling notebooks with rhymes"
     },
     "scene2TeenFreedom": {
       "freedomMachine": "a beat-up boombox and a pile of LL Cool J tapes I played until they wore out",

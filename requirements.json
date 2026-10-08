@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "localTools": [
+    "Node.js >=22",
+    "npm (npm ci installs pinned Remotion 4.0.532, React 19, zod, tsx)",
+    "FFmpeg with libx264, AAC, loudnorm, blackdetect, freezedetect, silencedetect and lavfi sources",
+    "FFprobe",
+    "Chrome Headless Shell (downloaded once by Remotion on first render; or set MEMOIR_BROWSER_EXECUTABLE)"
+  ],
+  "providers": [
+    { "name": "Cartesia Sonic", "environmentVariables": ["CARTESIA_API_KEY"], "optional": false, "paid": true, "purpose": "Consented voice clone of the maker and four natural-rate narration windows." },
+    { "name": "Meta Muse Image 1.0", "environmentVariables": ["META_API_KEY"], "optional": false, "paid": true, "purpose": "Character candidates and sheets, backgrounds and full-quality shot keyframes (~$0.01/image)." },
+    { "name": "Seedance 2.0 Mini 480p via Replicate", "environmentVariables": ["REPLICATE_API_TOKEN"], "optional": false, "paid": true, "purpose": "Image-to-video clips (one of REPLICATE_API_TOKEN or SEADANCE_API_KEY is required)." },
+    { "name": "SeaDance direct API", "environmentVariables": ["SEADANCE_API_KEY"], "optional": true, "paid": true, "purpose": "Alternative video route used by app providers.ts generateSceneVideoClip." },
+    { "name": "Google Gemini", "environmentVariables": ["GEMINI_API_KEY"], "optional": true, "paid": true, "purpose": "Optional automated media review or Gemini Omni animation." },
+    { "name": "ElevenLabs", "environmentVariables": ["ELEVENLABS_API_KEY"], "optional": true, "paid": true, "purpose": "Optional music bed and sound effects (disabled by default)." }
+  ],
+  "paidApprovalRequired": true,
+  "automaticInstallation": false,
+  "attemptLimit": 3,
+  "notes": [
+    "node runner.mjs check reports missing key NAMES only; values are never printed or stored.",
+    "Validation, planning, rendering, inspection, smoke and the placeholder pipeline proof make zero provider calls.",
+    "The placeholder proof uses macOS say for placeholder narration when available, otherwise an FFmpeg tone.",
+    "Tested on macOS (Apple Silicon). Other platforms are untested."
+  ]
+}

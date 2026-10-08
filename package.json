@@ -1,14 +1,16 @@
 {
   "name": "@wiggly/my-pixar-story-format",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
+    "check": "node runner.mjs check",
+    "smoke": "node runner.mjs smoke",
     "test": "npm run test:app && npm run test:kit",
-    "test:kit": "node build-renderer.mjs && node --test tests/remotion.test.mjs",
+    "test:kit": "node build-renderer.mjs && node --test tests/remotion.test.mjs tests/runner.test.mjs",
     "test:app": "tsx tests/app/my-pixar-story-format.test.tsx && tsx tests/app/my-pixar-story/smoke.test.ts && tsx tests/app/my-pixar-story/stateMachine.test.ts && tsx tests/app/my-pixar-story/providers.test.ts && tsx tests/app/my-pixar-story/inspect.test.ts && tsx tests/app/my-pixar-story/render.test.tsx && tsx tests/app/my-pixar-story/scrapbook.test.tsx && tsx tests/app/my-pixar-story/ui.test.tsx",
     "typecheck:app": "tsc -p tsconfig.json",
     "build:renderer": "node build-renderer.mjs"
@@ -29,6 +31,7 @@
     "react-dom": "19.2.7",
     "remotion": "4.0.532",
     "tailwind-merge": "3.6.0",
+    "tsx": "4.21.0",
     "zod": "4.3.6"
   },
   "devDependencies": {
@@ -36,7 +39,6 @@
     "@types/react": "19.2.16",
     "@types/react-dom": "19.2.3",
     "tailwindcss": "4.1.14",
-    "tsx": "4.21.0",
     "typescript": "5.8.3"
   }
 }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "wiggly-format",
+  "slug": "my-pixar-story",
+  "version": "2.1.0",
+  "status": "draft",
+  "runtime": "runner.mjs",
+  "releaseFiles": [
+    ".gitignore",
+    "SKILL.md",
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "requirements.json",
+    "blueprint.json",
+    "FORMAT-REPO.json",
+    "runner.mjs",
+    "build-renderer.mjs",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "format.json",
+    "scene-contract.json",
+    "studio.json",
+    "runtime/assemble.mjs",
+    "runtime/contracts.mjs",
+    "runtime/media.mjs",
+    "runtime/mix.mjs",
+    "runtime/progress.mjs",
+    "runtime/remotion.mjs",
+    "tests/remotion.test.mjs",
+    "tests/runner.test.mjs",
+    "docs/proofs/steve-jobs-to-lisa.json",
+    "docs/proofs/marshall-mathers-to-hailie.json"
+  ],
+  "assets": [],
+  "proofs": [],
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "notes": "Runtime, docs and smoke are in place; proof outputs land in the next commit."
+  }
+}

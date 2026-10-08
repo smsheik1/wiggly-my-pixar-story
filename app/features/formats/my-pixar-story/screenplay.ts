@@ -83,9 +83,21 @@ const SCREENPLAY_SCHEMA = {
 
 function cleanSentence(text?: string, maxSentences: number = 2): string {
   if (!text) return "";
-  const matches = text.match(/[^.!?]+[.!?]+/g);
-  if (!matches || matches.length === 0) return text.trim();
-  return matches.slice(0, maxSentences).join(" ").trim();
+  // Protect common abbreviations ("Dr. Dre", "Mrs. Gable") so they don't end a sentence.
+  const protectedText = text.replace(/\b(Dr|Mr|Mrs|Ms|St|Jr|Sr)\./g, "$1\u0000");
+  const matches = protectedText.match(/[^.!?]+[.!?]+/g);
+  const restore = (value: string) => value.replace(/\u0000/g, ".");
+  if (!matches || matches.length === 0) return restore(protectedText.trim());
+  return restore(matches.slice(0, maxSentences).join(" ").trim());
+}
+
+/** Shortens to at most maxChars without cutting a word in half; strips trailing punctuation. */
+function clipWords(text: string, maxChars: number): string {
+  const trimmed = text.trim().replace(/[.!?]+$/, "");
+  if (trimmed.length <= maxChars) return trimmed;
+  const cut = trimmed.slice(0, maxChars + 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut.slice(0, maxChars)).replace(/[,;:\s]+$/, "");
 }
 
 /**
@@ -108,28 +120,28 @@ export function compileNarrationScripts(inputs: MyPixarStoryInputs): [string, st
 
   // Scene 1: Childhood
   const script1 = isDirectFamily
-    ? `When I was little, ${recipient}, ${a1.slice(0, 90).trim()}.`
-    : `Growing up, ${name} held tight to simple wonders: ${a1.slice(0, 90).trim()}.`;
+    ? `When I was little, ${recipient}, ${clipWords(a1, 90)}.`
+    : `Growing up, ${name} held tight to simple wonders: ${clipWords(a1, 90)}.`;
 
   // Scene 2: Teen Freedom
   const script2 = isDirectFamily
-    ? `In my teen years, ${recipient}, ${a2.slice(0, 90).trim()}.`
-    : `As a teenager, ${name} chased freedom through the nights: ${a2.slice(0, 90).trim()}.`;
+    ? `In my teen years, ${recipient}, ${clipWords(a2, 90)}.`
+    : `As a teenager, ${name} chased freedom through the nights: ${clipWords(a2, 90)}.`;
 
   // Scene 3: Leap of Faith
   const script3 = isDirectFamily
-    ? `Taking that first big leap was terrifying, but ${a3.slice(0, 90).trim()}.`
-    : `Risking everything on a dream, ${name} pressed forward: ${a3.slice(0, 90).trim()}.`;
+    ? `Taking that first big leap was terrifying, but ${clipWords(a3, 90)}.`
+    : `Risking everything on a dream, ${name} pressed forward: ${clipWords(a3, 90)}.`;
 
   // Scene 4: The Anchor
   const script4 = isDirectFamily
-    ? `The moment that changed everything was ${a4.slice(0, 90).trim()}.`
-    : `In a quiet moment that grounded everything, ${a4.slice(0, 90).trim()}.`;
+    ? `The moment that changed everything was ${clipWords(a4, 90)}.`
+    : `In a quiet moment that grounded everything, ${clipWords(a4, 90)}.`;
 
   // Scene 5: Legacy Finale (14-18 words)
   const script5 = isDirectFamily
-    ? `${recipient}, never forget: ${a5.slice(0, 75).trim()}.`
-    : `Looking back across the journey, the truth endures: ${a5.slice(0, 75).trim()}.`;
+    ? `${recipient}, never forget: ${clipWords(a5, 75)}.`
+    : `Looking back across the journey, the truth endures: ${clipWords(a5, 75)}.`;
 
   return [script1, script2, script3, script4, script5];
 }

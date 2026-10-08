@@ -5,7 +5,9 @@
     "preferredName": "Steve",
     "recipientName": "Lisa",
     "relationshipToRecipient": "father",
-    "referencePhotoUrls": ["https://example.invalid/proofs/steve-jobs/reference.jpg"],
+    "referencePhotoUrls": [
+      "https://example.invalid/proofs/steve-jobs/reference.jpg"
+    ],
     "gender": "male",
     "keyPhysicalTraits": {
       "gender": "male",
@@ -15,7 +17,11 @@
       "eyeColor": "brown",
       "glasses": "wireframe",
       "facialHair": "stubble",
-      "signatureTraits": ["round wireframe spectacles", "lean angular jawline", "black mock turtleneck"]
+      "signatureTraits": [
+        "round wireframe spectacles",
+        "lean angular jawline",
+        "black mock turtleneck"
+      ]
     }
   },
   "audio": {
@@ -30,7 +36,7 @@
     "scene1Childhood": {
       "partnerInCrime": "my dad Paul, who gave me my own corner of his workbench in the garage",
       "sillyTrouble": "pulling pranks at school until a fourth-grade teacher bribed me with candy and a camera kit to start learning",
-      "weirdObsession": "building Heathkit electronics and taking apart anything my dad brought home to see how it worked"
+      "weirdObsession": "building Heathkit electronics and taking apart whatever my dad brought home"
     },
     "scene2TeenFreedom": {
       "freedomMachine": "a Volkswagen microbus that I later sold to help pay for the very first Apple computer",
@@ -38,15 +44,15 @@
     },
     "scene3LeapOfFaith": {
       "riskOrAdventure": "dropping out of Reed College and staying to sit in on a calligraphy class just because it was beautiful",
-      "triumphMoment": "building the Apple I with Woz in my parents' garage in Los Altos and selling our first fifty boards"
+      "triumphMoment": "building the Apple I with Woz in my parents' garage in Los Altos"
     },
     "scene4Romance": {
       "howWeMet": "I met your mom Chrisann at Homestead High when we were both teenagers making art and listening to Dylan",
       "awkwardDateMoment": "we spent a summer in a little cabin in the hills above Cupertino with almost nothing to our names",
-      "theMomentIKnew": "years later, when you came to live with me as a teenager and I finally got to be your dad up close"
+      "theMomentIKnew": "when you came to live with me as a teenager and I finally got to be your dad up close"
     },
     "scene5LegacyFinale": {
-      "whatIWishKidsUnderstood": "the Lisa computer was named after you, and I should have told you that a long time before I did",
+      "whatIWishKidsUnderstood": "the Lisa computer was named after you, and I should have said so sooner",
       "timeMachineMessageToChildSelf": "you can't connect the dots looking forward, so stay hungry and stay foolish"
     }
   },
