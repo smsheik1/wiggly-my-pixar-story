@@ -27,4 +27,4 @@ npm run typecheck:app  # tsc --noEmit over app/ and tests/app
 ```
 
 The tests run offline. Provider tests use `mock: true`, an empty `explicitApiKey`, or an injected fake `fetch`, so they don't need API keys.
-The fixtures in `tests/app/fixtures/` are fictional people.
+The smoke test reads the public-figure proof fixtures in `docs/proofs/` (`steve-jobs-to-lisa.json`, `marshall-mathers-to-hailie.json`). They use only publicly known story details, plus placeholder URLs.

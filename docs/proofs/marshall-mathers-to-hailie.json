@@ -1,0 +1,54 @@
+{
+  "_note": "Public-figure proof fixture. Details are drawn only from widely published public accounts (interviews, the autobiography The Way I Am, and his published songs, paraphrased). No private data, photos, or voice recordings; URLs are placeholders.",
+  "subject": {
+    "fullName": "Marshall Bruce Mathers III",
+    "preferredName": "Marshall",
+    "recipientName": "Hailie",
+    "relationshipToRecipient": "father",
+    "referencePhotoUrls": ["https://example.invalid/proofs/marshall-mathers/reference.jpg"],
+    "gender": "male",
+    "keyPhysicalTraits": {
+      "gender": "male",
+      "ageBracket": "50s",
+      "hairColor": "dark_brown",
+      "hairStyle": "buzz",
+      "eyeColor": "blue",
+      "glasses": false,
+      "facialHair": "short_beard",
+      "signatureTraits": ["piercing blue eyes", "pulled-up hoodie", "smirk"]
+    }
+  },
+  "audio": {
+    "narrationMode": "parent_clone",
+    "voiceCapture": {
+      "source": "upload",
+      "audioUrl": "https://example.invalid/proofs/marshall-mathers/voice-sample.mp3",
+      "durationSeconds": 20
+    }
+  },
+  "answers": {
+    "scene1Childhood": {
+      "partnerInCrime": "my uncle Ronnie, who was close to my age and first played me a rap tape",
+      "sillyTrouble": "always being the new kid, bouncing between Missouri and Detroit and getting picked on at every school",
+      "weirdObsession": "reading the dictionary and filling notebooks with rhymes because words felt like the one thing I could control"
+    },
+    "scene2TeenFreedom": {
+      "freedomMachine": "a beat-up boombox and a pile of LL Cool J tapes I played until they wore out",
+      "secretTeenIdentity": "battle rapping as M&M at the Hip-Hop Shop on Seven Mile when nobody thought a white kid from the east side could rap"
+    },
+    "scene3LeapOfFaith": {
+      "riskOrAdventure": "flying out to the Rap Olympics in Los Angeles with no money and my whole future riding on one battle",
+      "triumphMoment": "the day Dr. Dre heard my Slim Shady tape and called me into the studio"
+    },
+    "scene4Romance": {
+      "howWeMet": "I met your mom Kim at a friend's house party when I was fifteen, standing on a table rapping LL Cool J",
+      "awkwardDateMoment": "we were broke kids trying to figure it out, working minimum wage jobs and living wherever we could",
+      "theMomentIKnew": "the day you were born on Christmas Day in 1995 and everything I did after that was for you"
+    },
+    "scene5LegacyFinale": {
+      "whatIWishKidsUnderstood": "every word I wrote was so you would never have to grow up the way I did",
+      "timeMachineMessageToChildSelf": "keep writing in those notebooks, kid, the words are going to carry you out of here"
+    }
+  },
+  "tone": "triumphant_inspirational"
+}

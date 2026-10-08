@@ -1,0 +1,54 @@
+{
+  "_note": "Public-figure proof fixture. Details are drawn only from widely published public accounts (Walter Isaacson's biography, the 2005 Stanford commencement address, Lisa Brennan-Jobs' memoir Small Fry). No private data, photos, or voice recordings; URLs are placeholders.",
+  "subject": {
+    "fullName": "Steven Paul Jobs",
+    "preferredName": "Steve",
+    "recipientName": "Lisa",
+    "relationshipToRecipient": "father",
+    "referencePhotoUrls": ["https://example.invalid/proofs/steve-jobs/reference.jpg"],
+    "gender": "male",
+    "keyPhysicalTraits": {
+      "gender": "male",
+      "ageBracket": "50s",
+      "hairColor": "dark_brown",
+      "hairStyle": "short",
+      "eyeColor": "brown",
+      "glasses": "wireframe",
+      "facialHair": "stubble",
+      "signatureTraits": ["round wireframe spectacles", "lean angular jawline", "black mock turtleneck"]
+    }
+  },
+  "audio": {
+    "narrationMode": "parent_clone",
+    "voiceCapture": {
+      "source": "upload",
+      "audioUrl": "https://example.invalid/proofs/steve-jobs/voice-sample.mp3",
+      "durationSeconds": 20
+    }
+  },
+  "answers": {
+    "scene1Childhood": {
+      "partnerInCrime": "my dad Paul, who gave me my own corner of his workbench in the garage",
+      "sillyTrouble": "pulling pranks at school until a fourth-grade teacher bribed me with candy and a camera kit to start learning",
+      "weirdObsession": "building Heathkit electronics and taking apart anything my dad brought home to see how it worked"
+    },
+    "scene2TeenFreedom": {
+      "freedomMachine": "a Volkswagen microbus that I later sold to help pay for the very first Apple computer",
+      "secretTeenIdentity": "a kid who skipped the usual crowd to hang around the Hewlett-Packard Explorers Club and trade ideas with Woz"
+    },
+    "scene3LeapOfFaith": {
+      "riskOrAdventure": "dropping out of Reed College and staying to sit in on a calligraphy class just because it was beautiful",
+      "triumphMoment": "building the Apple I with Woz in my parents' garage in Los Altos and selling our first fifty boards"
+    },
+    "scene4Romance": {
+      "howWeMet": "I met your mom Chrisann at Homestead High when we were both teenagers making art and listening to Dylan",
+      "awkwardDateMoment": "we spent a summer in a little cabin in the hills above Cupertino with almost nothing to our names",
+      "theMomentIKnew": "years later, when you came to live with me as a teenager and I finally got to be your dad up close"
+    },
+    "scene5LegacyFinale": {
+      "whatIWishKidsUnderstood": "the Lisa computer was named after you, and I should have told you that a long time before I did",
+      "timeMachineMessageToChildSelf": "you can't connect the dots looking forward, so stay hungry and stay foolish"
+    }
+  },
+  "tone": "heartwarming_tearjerker"
+}

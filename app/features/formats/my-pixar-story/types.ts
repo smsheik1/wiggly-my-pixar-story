@@ -72,7 +72,7 @@ export interface MyPixarStoryInputs {
   subject: {
     fullName: string;
     preferredName: string;
-    recipientName: string; // e.g., "Wren", "Poppy"
+    recipientName: string; // e.g., "Lisa", "Hailie"
     relationshipToRecipient: 'father' | 'mother' | 'grandparent';
     referencePhotoUrls: string[];
     gender: 'male' | 'female' | 'non-binary';

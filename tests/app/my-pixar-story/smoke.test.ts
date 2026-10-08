@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import {
   compileStoryboard,
   compileNarrationScripts,
@@ -21,30 +20,28 @@ import type { MyPixarStoryInputs } from "../../../app/features/formats/my-pixar-
 console.log("=== Running My Pixar Story Smoke Tests ===");
 
 // 1. Load Proof Fixtures
-// Fictional fixtures (invented people, no real family data). In the monorepo these were
-// docs/proofs/*.json files that were never committed; this repo ships fictional replacements.
-const fixturesDir = fileURLToPath(new URL("../fixtures/", import.meta.url));
-const theoFixturePath = resolve(fixturesDir, "fictional-theo-to-wren.json");
-const dezFixturePath = resolve(fixturesDir, "fictional-dez-to-poppy.json");
+const repoRoot = resolve(process.cwd(), process.cwd().endsWith("/v3") ? ".." : ".");
+const steveProofPath = resolve(repoRoot, "docs/proofs/steve-jobs-to-lisa.json");
+const marshallProofPath = resolve(repoRoot, "docs/proofs/marshall-mathers-to-hailie.json");
 
-const theoInputs: MyPixarStoryInputs = JSON.parse(readFileSync(theoFixturePath, "utf-8"));
-const dezInputs: MyPixarStoryInputs = JSON.parse(readFileSync(dezFixturePath, "utf-8"));
+const steveInputs: MyPixarStoryInputs = JSON.parse(readFileSync(steveProofPath, "utf-8"));
+const marshallInputs: MyPixarStoryInputs = JSON.parse(readFileSync(marshallProofPath, "utf-8"));
 
-// 2. Validate fictional Theo Inputs
-console.log("Checking fictional Theo proof input validation...");
-const theoValidation = validateMyPixarStoryInputs(theoInputs);
-assert.equal(theoValidation.valid, true, `fictional Theo validation failed: ${theoValidation.errors.join(", ")}`);
+// 2. Validate Steve Jobs Inputs
+console.log("Checking Steve Jobs proof input validation...");
+const steveValidation = validateMyPixarStoryInputs(steveInputs);
+assert.equal(steveValidation.valid, true, `Steve Jobs validation failed: ${steveValidation.errors.join(", ")}`);
 
-// 3. Compile fictional Theo Storyboard
-console.log("Compiling fictional Theo storyboard...");
-const theoStoryboard = compileStoryboard(theoInputs);
-assert.equal(theoStoryboard.format, "my-pixar-story");
-assert.equal(theoStoryboard.scenes.length, 5);
-assert.equal(theoStoryboard.subjectName, "Theo");
-assert.equal(theoStoryboard.recipientName, "Wren");
+// 3. Compile Steve Jobs Storyboard
+console.log("Compiling Steve Jobs storyboard...");
+const steveStoryboard = compileStoryboard(steveInputs);
+assert.equal(steveStoryboard.format, "my-pixar-story");
+assert.equal(steveStoryboard.scenes.length, 5);
+assert.equal(steveStoryboard.subjectName, "Steve");
+assert.equal(steveStoryboard.recipientName, "Lisa");
 
 // Check Scene 1
-const s1 = theoStoryboard.scenes[0];
+const s1 = steveStoryboard.scenes[0];
 assert.equal(s1.beatNumber, 1);
 assert.ok(s1.ageLabel.includes("Childhood"));
 assert.ok(s1.narrationScript.length > 0);
@@ -52,41 +49,41 @@ assert.ok(s1.seaDanceVideoPrompt.includes("production CG") || s1.seaDanceVideoPr
 assert.ok(s1.characterDnaAgePrompt.includes("boy") || s1.characterDnaAgePrompt.includes("child"));
 
 // Check Scene 2
-const s2 = theoStoryboard.scenes[1];
+const s2 = steveStoryboard.scenes[1];
 assert.equal(s2.beatNumber, 2);
 assert.ok(s2.ageLabel.includes("Teen Years"));
 assert.ok(s2.narrationScript.includes("Volkswagen") || s2.narrationScript.includes("microbus"));
 
 // Check Scene 5 (Tearjerker Hug)
-const s5 = theoStoryboard.scenes[4];
+const s5 = steveStoryboard.scenes[4];
 assert.equal(s5.beatNumber, 5);
 assert.ok(s5.ageLabel.includes("Today"));
 assert.ok(s5.cameraMovement.includes("slow push-in") || s5.cameraMovement.includes("settling"));
 
 // Validate Compiled Storyboard Structure
-const theoSbValidation = validateMyPixarStoryStoryboard(theoStoryboard);
-assert.equal(theoSbValidation.valid, true, `Compiled storyboard invalid: ${theoSbValidation.errors.join(", ")}`);
+const steveSbValidation = validateMyPixarStoryStoryboard(steveStoryboard);
+assert.equal(steveSbValidation.valid, true, `Compiled storyboard invalid: ${steveSbValidation.errors.join(", ")}`);
 
-// 4. Validate fictional Dez Inputs & Storyboard
-console.log("Checking fictional Dez proof input validation...");
-const dezValidation = validateMyPixarStoryInputs(dezInputs);
-assert.equal(dezValidation.valid, true, `fictional Dez validation failed: ${dezValidation.errors.join(", ")}`);
+// 4. Validate Marshall Mathers Inputs & Storyboard
+console.log("Checking Marshall Mathers proof input validation...");
+const marshallValidation = validateMyPixarStoryInputs(marshallInputs);
+assert.equal(marshallValidation.valid, true, `Marshall Mathers validation failed: ${marshallValidation.errors.join(", ")}`);
 
-console.log("Compiling fictional Dez storyboard...");
-const dezStoryboard = compileStoryboard(dezInputs);
-assert.equal(dezStoryboard.scenes.length, 5);
-assert.equal(dezStoryboard.subjectName, "Dez");
-assert.equal(dezStoryboard.recipientName, "Poppy");
+console.log("Compiling Marshall Mathers storyboard...");
+const marshallStoryboard = compileStoryboard(marshallInputs);
+assert.equal(marshallStoryboard.scenes.length, 5);
+assert.equal(marshallStoryboard.subjectName, "Marshall");
+assert.equal(marshallStoryboard.recipientName, "Hailie");
 
-const dezSbValidation = validateMyPixarStoryStoryboard(dezStoryboard);
-assert.equal(dezSbValidation.valid, true, `Fictional Dez storyboard invalid: ${dezSbValidation.errors.join(", ")}`);
+const marshallSbValidation = validateMyPixarStoryStoryboard(marshallStoryboard);
+assert.equal(marshallSbValidation.valid, true, `Marshall storyboard invalid: ${marshallSbValidation.errors.join(", ")}`);
 
 // 5. Test Validator Failure Cases
 console.log("Testing validator failure cases...");
 
 // Audio duration < 10s failure
 const shortAudioInputs: MyPixarStoryInputs = {
-  ...theoInputs,
+  ...steveInputs,
   audio: {
     narrationMode: "parent_clone",
     voiceCapture: {
@@ -102,9 +99,9 @@ assert.ok(shortAudioValidation.errors.some((e) => e.includes("minimum of 10 seco
 
 // Missing Scene 1 answer failure
 const missingAnswerInputs = {
-  ...theoInputs,
+  ...steveInputs,
   answers: {
-    ...theoInputs.answers,
+    ...steveInputs.answers,
     scene1Childhood: {
       partnerInCrime: "",
       sillyTrouble: "",
@@ -117,12 +114,12 @@ assert.equal(missingAnswerValidation.valid, false);
 assert.ok(missingAnswerValidation.errors.some((e) => e.includes("Scene 1 (Childhood) requires")));
 
 // 6. Test Prompt Compiler directly
-const dna = compileCharacterDna(theoInputs.subject.keyPhysicalTraits, theoInputs.subject.preferredName);
+const dna = compileCharacterDna(steveInputs.subject.keyPhysicalTraits, steveInputs.subject.preferredName);
 assert.ok(dna.includes("spectacles"));
 assert.ok(dna.includes("lean angular jawline"));
 assert.ok(dna.includes("dark brown"));
 
-const ageDesc = getAgeProgressionDescriptor(dna, 1, theoInputs.subject.keyPhysicalTraits);
+const ageDesc = getAgeProgressionDescriptor(dna, 1, steveInputs.subject.keyPhysicalTraits);
 assert.ok(ageDesc.ageLabel.includes("Childhood"));
 assert.ok(ageDesc.characterPrompt.includes("boy") || ageDesc.characterPrompt.includes("child"));
 
